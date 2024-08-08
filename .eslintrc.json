@@ -1,0 +1,7 @@
+{
+  "root": true,
+  "rules": {},
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
+}
