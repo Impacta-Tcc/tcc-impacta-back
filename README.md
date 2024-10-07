@@ -95,7 +95,7 @@ Conectar ao SQL Server no contêiner
 
 Use uma ferramenta como o SQL Server Management Studio (SSMS) ou Azure Data Studio para conectar-se ao SQL Server em execução no Docker:
 
-- Servidor: localhost
+- Servidor: localhost,1433
 
 - Usuário: SA
 
