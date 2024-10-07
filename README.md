@@ -14,35 +14,10 @@ De que coisas você precisa para instalar o software ?
 ```
 NodeJs
 NPM
-
+Docker
 ```
 
-### 🔧 Instalação
-
-Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
-
-###### Passo 1
-```
-[npm install]
-```
----
-###### Passo 2
-```
-[npm run dev]
-```
----
-###### Passo 3
-```
-Clique [Ctrl + localhost] no terminal
-```
----
-###### Passo 4
-```
-Pronto, uma API já está disponível para pesquisar CEP.
-```
----
-
-## 🚀 Utilizando SQL Server + Docker
+## 🚀 Docker + imagem Sql server
 
 ### 📋 Pré-requisitos
 
@@ -124,3 +99,28 @@ Se você não precisar mais do contêiner, remova-o com o comando:
 ```
 docker rm -f sqlserver
 ```
+
+### 🔧 Instalação dependências
+
+Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
+
+###### Passo 1
+```
+[npm install]
+```
+---
+###### Passo 2
+```
+[npm run dev]
+```
+---
+###### Passo 3
+```
+Clique [Ctrl + localhost] no terminal
+```
+---
+###### Passo 4
+```
+Pronto, uma API já está disponível para pesquisar CEP.
+```
+---
