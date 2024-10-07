@@ -35,7 +35,7 @@ Abra o terminal e execute o seguinte comando para buildar e configurar a imagem 
 docker build -t sqlserver-with-db .
 ```
 ###### Passo 2
-Criação de container, usando as credenciais que gostaria
+Criação de container com a porta que tem disponível e com a imagem que foi criada anteriormente
 ```
 docker run -d \
   --name tcc-impacta-back \
