@@ -28,31 +28,20 @@ Conta no Docker Hub (opcional)
 ```
 ###### Passo 1
 
-Baixar a imagem do SQL Server
+Rodar o build da imagem pelo dockerfile
 
-Abra o terminal e execute o seguinte comando para baixar a imagem do SQL Server:
+Abra o terminal e execute o seguinte comando para buildar e configurar a imagem no docker utilizando o Dockerfile:
 ```
-docker pull mcr.microsoft.com/mssql/server:2019-latest
+docker build -t sqlserver-with-db .
 ```
-
 ###### Passo 2
-Criar e iniciar um contêiner do SQL Server
-
-Após baixar a imagem, crie e inicie um contêiner utilizando o comando:
-
+Criação de container, usando as credenciais que gostaria
 ```
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=SuaSenhaForte" -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server:2019-latest
+docker run -d \
+  --name tcc-impacta-back \
+  -p 1433:1433 \
+  sqlserver-with-db
 ```
-- ACCEPT_EULA=Y: Aceita os termos da licença.
-
-- SA_PASSWORD: Define a senha do administrador do sistema (SA). Use uma senha forte!
-
-- -p 1433:1433: Mapeia a porta 1433 do contêiner para a porta 1433 da máquina host.
-
-- --name sqlserver: Nome do contêiner.
-
-- -d: Executa o contêiner em segundo plano (detached mode).
-
 
 ###### Passo 3
 Verificar se o contêiner está em execução
@@ -65,7 +54,7 @@ docker ps -a
 Obs: - Você deverá ver o contêiner sqlserver em execução na lista de contêineres.
 
 
-###### Passo 4
+###### Passo 3
 Conectar ao SQL Server no contêiner
 
 Use uma ferramenta como o SQL Server Management Studio (SSMS) ou Azure Data Studio para conectar-se ao SQL Server em execução no Docker:
@@ -76,14 +65,14 @@ Use uma ferramenta como o SQL Server Management Studio (SSMS) ou Azure Data Stud
 
 - Senha: SuaSenhaForte123 (a senha definida no passo 2)
 
-###### Passo 5
+###### Passo 4
 Caso não consiga conectar no banco por conta da senha
 
 ```
 docker exec -u 0 -it sqlserver bash
 ```
 
-###### Passo 6
+###### Passo 5
 Instalar sql-tools e adicionar o PATH
 ```
 -- Tools
@@ -98,13 +87,13 @@ ACCEPT_EULA=Y apt-get install -y mssql-tools unixodbc-dev
 echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 source ~/.bashrc
 ```
-###### Passo 7
+###### Passo 6
 Troca da senha do usuário sa
 ```
 sqlcmd -S localhost -U sa -P 'novaSENHAForte'
 ```
 
-###### Passo 8
+###### Passo 7
 Parar e iniciar o contêiner
 
 Para parar o contêiner, execute:
@@ -118,7 +107,7 @@ Para iniciar o contêiner novamente, execute:
 ```
 docker start sqlserver
 ```
-###### Passo 9
+###### Passo 8
 Remover o contêiner
 
 Se você não precisar mais do contêiner, remova-o com o comando:
