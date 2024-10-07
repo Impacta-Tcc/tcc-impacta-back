@@ -66,8 +66,7 @@ Criar e iniciar um contêiner do SQL Server
 Após baixar a imagem, crie e inicie um contêiner utilizando o comando:
 
 ```
-docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=SuaSenhaForte123" \
-   -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server:2019-latest
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=SuaSenhaForte" -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server:2022-latest
 ```
 - ACCEPT_EULA=Y: Aceita os termos da licença.
 
@@ -124,5 +123,4 @@ Se você não precisar mais do contêiner, remova-o com o comando:
 
 ```
 docker rm -f sqlserver
-
 ```
