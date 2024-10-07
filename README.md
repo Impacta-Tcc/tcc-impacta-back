@@ -76,8 +76,35 @@ Use uma ferramenta como o SQL Server Management Studio (SSMS) ou Azure Data Stud
 
 - Senha: SuaSenhaForte123 (a senha definida no passo 2)
 
-
 ###### Passo 5
+Caso não consiga conectar no banco por conta da senha
+
+```
+docker exec -u 0 -it sqlserver bash
+```
+
+###### Passo 6
+Instalar sql-tools e adicionar o PATH
+```
+-- Tools
+apt-get update
+apt-get install -y curl apt-transport-https gnupg
+curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
+apt-get update
+ACCEPT_EULA=Y apt-get install -y mssql-tools unixodbc-dev
+
+-- Path
+echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+source ~/.bashrc
+```
+###### Passo 7
+Troca da senha do usuário sa
+```
+sqlcmd -S localhost -U sa -P 'novaSENHAForte'
+```
+
+###### Passo 8
 Parar e iniciar o contêiner
 
 Para parar o contêiner, execute:
@@ -91,7 +118,7 @@ Para iniciar o contêiner novamente, execute:
 ```
 docker start sqlserver
 ```
-###### Passo 6
+###### Passo 9
 Remover o contêiner
 
 Se você não precisar mais do contêiner, remova-o com o comando:
