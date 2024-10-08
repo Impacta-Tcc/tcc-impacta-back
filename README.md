@@ -27,26 +27,13 @@ Docker instalado na máquina
 Conta no Docker Hub (opcional)
 ```
 ###### Passo 1
-
-Rodar o build da imagem pelo dockerfile
-
-Abra o terminal e execute o seguinte comando para buildar e configurar a imagem no docker utilizando o Dockerfile:
+Criação de build das imagens para a API e banco + subida de containers, executando o comando abaixo
 ```
-docker build -t sqlserver-with-db .
-```
-###### Passo 2
-Criação de container com a porta que tem disponível e com a imagem que foi criada anteriormente
-```
-docker run -d \
-  --name tcc-impacta-back \
-  -p 1433:1433 \
-  sqlserver-with-db
+docker-compose up --build -d
 ```
 
 ###### Passo 3
-Verificar se o contêiner está em execução
-
-Execute o comando abaixo para verificar se o contêiner do SQL Server está em execução:
+Verificar se os contêiners estão em execução
 
 ```
 docker ps -a
@@ -66,46 +53,18 @@ Use uma ferramenta como o SQL Server Management Studio (SSMS) ou Azure Data Stud
 - Senha: SuaSenhaForte123 (a senha definida no passo 2)
 
 ###### Passo 4
-Caso não consiga conectar no banco por conta da senha
-
-```
-docker exec -u 0 -it sqlserver bash
-```
-
-###### Passo 5
-Instalar sql-tools e adicionar o PATH
-```
--- Tools
-apt-get update
-apt-get install -y curl apt-transport-https gnupg
-curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
-apt-get update
-ACCEPT_EULA=Y apt-get install -y mssql-tools unixodbc-dev
-
--- Path
-echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
-source ~/.bashrc
-```
-###### Passo 6
-Troca da senha do usuário sa
-```
-sqlcmd -S localhost -U sa -P 'novaSENHAForte'
-```
-
-###### Passo 7
 Parar e iniciar o contêiner
 
 Para parar o contêiner, execute:
 
 ```
-docker stop sqlserver
+docker stop <nome_container>
 ```
 
 Para iniciar o contêiner novamente, execute:
 
 ```
-docker start sqlserver
+docker start <nome_container>
 ```
 ###### Passo 8
 Remover o contêiner
@@ -113,10 +72,10 @@ Remover o contêiner
 Se você não precisar mais do contêiner, remova-o com o comando:
 
 ```
-docker rm -f sqlserver
+docker rm -f <nome_container>
 ```
 
-### 🔧 Instalação dependências
+### 🔧 Instalação dependências isoladas
 
 Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
 

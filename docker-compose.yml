@@ -1,0 +1,14 @@
+version: "3"
+services:
+    db:
+        build: .
+        ports:
+            - "1433:1433"
+    api:
+        build: .
+        command: nodejs server.js
+        ports:
+            - "7500:7500"
+        depends_on:
+            db:
+              condition: service_started
