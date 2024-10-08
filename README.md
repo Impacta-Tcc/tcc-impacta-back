@@ -75,6 +75,14 @@ Se você não precisar mais do contêiner, remova-o com o comando:
 docker rm -f <nome_container>
 ```
 
+## 🚀 Criar tabela + procedures
+
+Execute os scritps encontrados na pasta /src/db na sequência:
+```
+1. tb_historico_cep.sql
+2. inserir_historico.sql
+3. consulta_historico.sql
+```
 ### 🔧 Instalação dependências isoladas
 
 Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.

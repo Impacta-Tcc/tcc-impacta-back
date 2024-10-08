@@ -1,6 +1,4 @@
-﻿USE tcc-impacta
-GO
-Create Procedure inserir_historico
+﻿Create Procedure inserir_historico
 (
 	@cep			Varchar(15)	 Null,
 	@logradouro		Varchar(300) Null,

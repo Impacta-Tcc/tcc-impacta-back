@@ -1,8 +1,4 @@
-﻿CREATE DATABASE [tcc-impacta];
-GO
-
-USE tcc-impacta
-GO
+﻿USE [tcc-impacta]
 
 If Not Exists (Select top 1 1 
 				From sys.objects 
