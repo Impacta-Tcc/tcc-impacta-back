@@ -1,28 +1,28 @@
 version: "3.9"
 services:
-    db:
-        container_name: db
-        build: .
-        ports:
-            - "1433:1433"
-        networks:
-          - backend
-    api:
-        restart: always
-        container_name: api
-        build: .
-        command: nodejs server.js
-        environment:
-          - DATABASE_HOST=db
-        ports:
-            - "7500:7500"
-        networks:
-          - backend
-        depends_on:
-          db:
-            condition: service_started
-        
+  db:
+    container_name: db
+    build: .
+    ports:
+      - "1433:1433"
+    networks:
+      - backend
 
+  api:
+    restart: always
+    container_name: api
+    build: .
+    command: ./wait-for-db.sh nodejs server.js  # Chama o script antes de iniciar a API
+    environment:
+      - DATABASE_HOST=db
+    ports:
+      - "7500:7500"
+    networks:
+      - backend
+    depends_on:
+      db:
+        condition: service_started
+        
 networks:
   backend:
     name: 'backend'
