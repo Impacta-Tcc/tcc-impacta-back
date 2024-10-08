@@ -1,14 +1,21 @@
-version: "3"
 services:
+    api:
+        build: .
+        command: nodejs server.js
+        environment:
+          - DATABASE_HOST=db
+        ports:
+            - "7500:7500"
+        networks:
+          - backend
+        
     db:
         build: .
         ports:
             - "1433:1433"
-    api:
-        build: .
-        command: nodejs server.js
-        ports:
-            - "7500:7500"
-        depends_on:
-            db:
-              condition: service_started
+        networks:
+          - backend
+
+networks:
+  backend:
+    driver: brigde

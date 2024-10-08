@@ -5,24 +5,26 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "rimraf dist && tsc -p tsconfig-build.json"  
+    "build": "rimraf dist && tsc -p tsconfig-build.json",
+    "production": "npm run build; docker-compose up --build -d"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/mssql": "^9.1.5",
     "axios": "^1.5.1",
     "fastify": "^4.24.3",
     "fastify-cors": "^6.1.0",
     "mssql": "^11.0.1",
     "rimraf": "^6.0.1",
+    "vitest": "^2.1.2",
     "zod": "^3.22.4"
   },
   "devDependencies": {
     "@fastify/cors": "^8.4.0",
     "@types/node": "^20.8.7",
     "tsx": "^3.14.0",
-    "typescript": "^5.2.2",
-    "@jest-mock/express": "^2.0.1"
+    "typescript": "^5.2.2"
   }
 }
