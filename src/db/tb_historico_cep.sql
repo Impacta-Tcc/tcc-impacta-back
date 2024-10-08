@@ -1,4 +1,9 @@
-﻿
+﻿CREATE DATABASE [tcc-impacta];
+GO
+
+USE tcc-impacta
+GO
+
 If Not Exists (Select top 1 1 
 				From sys.objects 
 				Where object_id = object_id('[dbo].[tb_historico_cep]') and type in ('U')) 
