@@ -13,10 +13,12 @@ export async function getCepByZipCode(request: FastifyRequest, reply: FastifyRep
 
     const getCepHistory = makeGetCepHistoryUseCase()
 
+    const responseGetCepHistory = await getCepHistory.execute();
+
     const cepInformations = await getCepByZipCode.execute(cep)
 
     console.log(cepInformations)
-    console.log("BANCO:",getCepHistory)
+    console.log("BANCO:",responseGetCepHistory)
 
     return await reply.status(200).send(cepInformations)
   } catch (error) {

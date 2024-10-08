@@ -1,7 +1,4 @@
-﻿USE tcc-impacta
-GO
-
-Create Procedure consulta_historico
+﻿Create Procedure consulta_historico
 As
 Begin
 

@@ -1,5 +1,15 @@
+version: "3.9"
 services:
+    db:
+        container_name: db
+        build: .
+        ports:
+            - "1433:1433"
+        networks:
+          - backend
     api:
+        restart: always
+        container_name: api
         build: .
         command: nodejs server.js
         environment:
@@ -8,14 +18,12 @@ services:
             - "7500:7500"
         networks:
           - backend
+        depends_on:
+          db:
+            condition: service_started
         
-    db:
-        build: .
-        ports:
-            - "1433:1433"
-        networks:
-          - backend
 
 networks:
   backend:
-    driver: brigde
+    name: 'backend'
+    driver: bridge

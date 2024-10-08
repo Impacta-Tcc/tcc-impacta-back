@@ -7,8 +7,8 @@ const config = {
   server: env.DATABASE_HOST, 
   database: "tcc-impacta",
   options: {
-    encrypt: false,
-    enableArithAbort: false,
+    trustedConnection: true,
+    trustServerCertificate: true,
   },
 };
 
