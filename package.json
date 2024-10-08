@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "test": "vitest run"
+    "build": "rimraf dist && tsc -p tsconfig-build.json"  
   },
   "keywords": [],
   "author": "",
@@ -16,13 +16,14 @@
     "fastify": "^4.24.3",
     "fastify-cors": "^6.1.0",
     "mssql": "^11.0.1",
-    "vitest": "^0.34.6",
+    "rimraf": "^6.0.1",
     "zod": "^3.22.4"
   },
   "devDependencies": {
     "@fastify/cors": "^8.4.0",
     "@types/node": "^20.8.7",
     "tsx": "^3.14.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "@jest-mock/express": "^2.0.1"
   }
 }

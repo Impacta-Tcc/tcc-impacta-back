@@ -1,13 +1,14 @@
 {
-  "compilerOptions": {
-    "outDir": "dist",
-    "rootDir": "src",
-    "target": "ESNext",
-    "module": "CommomJS",
-    "moduleResolution": "node",
-    "esModuleInterop": true
-  },
-  "include": [
-    "src"
-  ]
-}
+   "compilerOptions": {
+     "outDir": "dist",
+     "rootDir": "src",
+     "target": "ESNext",
+     "module": "commonjs",
+     "moduleResolution": "node",
+     "esModuleInterop": true,
+     "skipLibCheck": true
+   },
+   "include": [
+     "src"
+   ]
+ }
