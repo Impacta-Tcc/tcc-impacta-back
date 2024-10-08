@@ -29,7 +29,7 @@ Conta no Docker Hub (opcional)
 ###### Passo 1
 Criação de build das imagens para a API e banco + subida de containers, executando o comando abaixo
 ```
-docker-compose up --build -d
+npm run production
 ```
 
 ###### Passo 3
@@ -79,8 +79,7 @@ docker rm -f <nome_container>
 
 Execute os scritps encontrados na pasta /src/db na sequência:
 ```
-1. tb_historico_cep.sql
-2. inserir_historico.sql
+1. inserir_historico.sql
 3. consulta_historico.sql
 ```
 ### 🔧 Instalação dependências isoladas

@@ -6,7 +6,6 @@ app.listen({
   port: 7500
 }).then(() => {
   console.log('Server listening on port 7500')
-  setTimeout(() => {
     sql
     .connect()
     .then(() => {
@@ -15,5 +14,4 @@ app.listen({
     .catch((err) => {
       console.error("Database connection failed: ", err);
     });
-  }, 5000);
 })
