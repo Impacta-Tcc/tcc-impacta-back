@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "rimraf dist && tsc -p tsconfig-build.json",
-    "production": "npm run build; docker-compose up --build -d"
+    "build:api": "rimraf dist && tsc -p tsconfig-build.json",
+    "build:containers": "docker-compose up --build -d"
   },
   "keywords": [],
   "author": "",
