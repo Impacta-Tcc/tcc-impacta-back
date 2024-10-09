@@ -15,7 +15,6 @@ export async function getCepByZipCode(request: FastifyRequest, reply: FastifyRep
 
     const cepInformations = await getCepByZipCode.execute(cep)
 
-    console.log(typeof cepInformations)
     setCepHistory.execute(
       {
         cep: cepInformations.cep,
