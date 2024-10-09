@@ -6,4 +6,7 @@ export class InMemoryViaCepRepository implements viaCepRepository {
   async getHistoryCep(): Promise<TbHistoricoModel[]>{
     return this.items
   }
+  async inserirHistoryCep(historicoCEP: TbHistoricoModel): Promise<any> {
+    return "";
+  }
 }

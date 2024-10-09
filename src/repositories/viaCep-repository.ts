@@ -11,4 +11,5 @@ export interface TbHistoricoModel {
 
 export interface viaCepRepository {
   getHistoryCep: () => Promise<TbHistoricoModel[]>
+  inserirHistoryCep: (historicoCEP: TbHistoricoModel) => Promise<any>
 }

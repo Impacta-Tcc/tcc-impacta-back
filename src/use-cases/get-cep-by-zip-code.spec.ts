@@ -21,14 +21,16 @@ describe('Get CEP informations by ZipCode', () => {
       ibge: "3550308",
       gia: "1004",
       ddd: "11",
-      siafi: "7107"
+      siafi: "7107",
+      estado: "São Paulo",
+      regiao: "Sudeste"
     }
   })
 
   it('Should be able to get CEP informations by consulting the ZipCode', async () => {
-    viaCepService.items.push(resultViaCep)
+    viaCepService.items = resultViaCep
     const items = await sut.execute('01001000')
     expect(items).toHaveLength(1)
-    expect(items).toEqual([resultViaCep])
+    expect(items).toEqual(resultViaCep)
   })
 })

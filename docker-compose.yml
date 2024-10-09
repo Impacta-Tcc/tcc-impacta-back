@@ -15,6 +15,7 @@ services:
     command: ./wait-for-db.sh nodejs server.js  # Chama o script antes de iniciar a API
     environment:
       - DATABASE_HOST=db
+      - API_host=api
     ports:
       - "7500:7500"
     networks:

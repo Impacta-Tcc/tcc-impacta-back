@@ -4,6 +4,6 @@ import { GetCepHistoryUseCase } from "../get-cep-history-use-case"
 
 export function makeGetCepHistoryUseCase(): GetCepHistoryUseCase {
   const viaCepRepository = new ViaCepRepository()
-  const getCepByZipCodeUseCase = new GetCepHistoryUseCase(viaCepRepository)
-  return getCepByZipCodeUseCase
+  const getCepHistoryCodeUseCase = new GetCepHistoryUseCase(viaCepRepository)
+  return getCepHistoryCodeUseCase
 }

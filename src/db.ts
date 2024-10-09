@@ -4,7 +4,7 @@ import { ConnectionPool } from "mssql";
 const config = {
   user: "sa",
   password: "@k]rHSdfbKW0",
-  server: env.DATABASE_HOST, 
+  server: env.DATABASE_HOST || "localhost", 
   database: "tcc-impacta",
   options: {
     trustedConnection: true,

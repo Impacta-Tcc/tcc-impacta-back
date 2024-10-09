@@ -8,9 +8,11 @@ export interface ViacepResult {
   ibge: string,
   gia: string,
   ddd: string,
-  siafi: string
+  siafi: string,
+  estado:string,
+  regiao:string
 }
 
 export interface viaCepService {
-  getCepByZipCode: (cep: string) => Promise<ViacepResult[]>
+  getCepByZipCode: (cep: string) => Promise<ViacepResult>
 }
