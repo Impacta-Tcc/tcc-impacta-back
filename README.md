@@ -30,7 +30,6 @@ Criação de build das imagens para a API e banco + subida de containers, execut
 ```
 npm run buid:api
 npm run buid:containers
-npm run dev
 ```
 
 #### Passo 2
