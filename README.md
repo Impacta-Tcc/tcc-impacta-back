@@ -22,7 +22,7 @@ Docker
 ### 📋 Pré-requisitos
 
 Docker instalado na máquina
-- [https://docs.docker.com/desktop/install/](https://docs.docker.com/get-started/get-docker/)
+- [https://docs.docker.com/get-started/get-docker/](https://docs.docker.com/get-started/get-docker/)
 
   
 #### Passo 1
