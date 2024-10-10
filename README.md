@@ -21,10 +21,10 @@ Docker
 
 ### 📋 Pré-requisitos
 
-```
 Docker instalado na máquina
 - [https://docs.docker.com/desktop/install/](https://docs.docker.com/get-started/get-docker/)
-```
+
+  
 #### Passo 1
 Criação de build das imagens para a API e banco + subida de containers, executando o comando abaixo
 ```
