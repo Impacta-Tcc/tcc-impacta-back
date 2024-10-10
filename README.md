@@ -23,16 +23,17 @@ Docker
 
 ```
 Docker instalado na máquina
-
-Conta no Docker Hub (opcional)
+- https://docs.docker.com/desktop/install/windows-install/
 ```
-###### Passo 1
+#### Passo 1
 Criação de build das imagens para a API e banco + subida de containers, executando o comando abaixo
 ```
-npm run production
+npm run buid:api
+npm run buid:containers
+npm run dev
 ```
 
-###### Passo 3
+#### Passo 2
 Verificar se os contêiners estão em execução
 
 ```
@@ -41,7 +42,7 @@ docker ps -a
 Obs: - Você deverá ver o contêiner sqlserver em execução na lista de contêineres.
 
 
-###### Passo 3
+#### Passo 3
 Conectar ao SQL Server no contêiner
 
 Use uma ferramenta como o SQL Server Management Studio (SSMS) ou Azure Data Studio para conectar-se ao SQL Server em execução no Docker:
@@ -50,9 +51,11 @@ Use uma ferramenta como o SQL Server Management Studio (SSMS) ou Azure Data Stud
 
 - Usuário: SA
 
-- Senha: SuaSenhaForte123 (a senha definida no passo 2)
+- Senha: @k]rHSdfbKW0
 
-###### Passo 4
+**Senha** definida dentro do container
+
+#### Passo 4
 Parar e iniciar o contêiner
 
 Para parar o contêiner, execute:
@@ -66,7 +69,7 @@ Para iniciar o contêiner novamente, execute:
 ```
 docker start <nome_container>
 ```
-###### Passo 8
+#### Passo 5
 Remover o contêiner
 
 Se você não precisar mais do contêiner, remova-o com o comando:
@@ -86,22 +89,22 @@ Execute os scritps encontrados na pasta /src/db na sequência:
 
 Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
 
-###### Passo 1
+#### Passo 1
 ```
 [npm install]
 ```
 ---
-###### Passo 2
+#### Passo 2
 ```
 [npm run dev]
 ```
 ---
-###### Passo 3
+#### Passo 3
 ```
 Clique [Ctrl + localhost] no terminal
 ```
 ---
-###### Passo 4
+#### Passo 4
 ```
 Pronto, uma API já está disponível para pesquisar CEP.
 ```
