@@ -28,27 +28,28 @@ export async function getCepByZipCode(request: FastifyRequest, reply: FastifyRep
 
     const cepInformations = await getCepByZipCode.execute(cep)
 
-     // Verifica se algum campo obrigatório está vazio, null ou undefined
-     for (const campo of camposObrigatorios) {
-      if (!cepInformations[campo as keyof TbHistoricoModel]) {
-        throw new Error(`O campo ${campo} é obrigatório e não pode ser vazio.`);
+    if(cepInformations){
+      // Verifica se algum campo obrigatório está vazio, null ou undefined
+      for (const campo of camposObrigatorios) {
+        if (!cepInformations[campo as keyof TbHistoricoModel]) {
+          throw new Error(`O campo ${campo} é obrigatório e não pode ser vazio.`);
+        }
       }
+
+      setCepHistory.execute(
+        {
+          cep: cepInformations.cep,
+          logradouro: cepInformations.logradouro,
+          complemento: cepInformations.complemento,
+          bairro: cepInformations.bairro,
+          localidade: cepInformations.localidade,
+          uf: cepInformations.uf,
+          estado: cepInformations.estado,
+          regiao: cepInformations.regiao
+        }
+      )  
+      return await reply.status(200).send(cepInformations)
     }
-    setCepHistory.execute(
-      {
-        cep: cepInformations.cep,
-        logradouro: cepInformations.logradouro,
-        complemento: cepInformations.complemento,
-        bairro: cepInformations.bairro,
-        localidade: cepInformations.localidade,
-        uf: cepInformations.uf,
-        estado: cepInformations.estado,
-        regiao: cepInformations.regiao
-      }
-    )
-
-
-    return await reply.status(200).send(cepInformations)
   } catch (error) {
     throw error
   }
