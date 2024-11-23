@@ -15,7 +15,8 @@ Begin
 		estado,		
 		regiao
 	
-	From dbo.tb_historico_cep 
+	From dbo.tb_historico_cep
+	Order by id_historico_cep desc
 
 
 End
